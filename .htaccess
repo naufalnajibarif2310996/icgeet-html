@@ -1,0 +1,31 @@
+RewriteEngine On
+
+# Redirect folder ke index.html
+DirectoryIndex index.html
+
+# Jika file/folder ada, langsung akses
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Mapping URL pendek ke file html
+RewriteRule ^about$ about-icgeet.html [L]
+RewriteRule ^committee$ about-committee.html [L]
+RewriteRule ^pag$ program-program-at-glance.html [L]
+RewriteRule ^keynote-speakers$ program-keynote-speakers.html [L]
+RewriteRule ^social-program$ program-social-program.html [L]
+RewriteRule ^call-for-papers$ submission-call-for-papers.html [L]
+RewriteRule ^important-dates$ submission-important-dates.html [L]
+RewriteRule ^conference-scopes$ submission-topics.html [L]
+RewriteRule ^conference-fee$ submission-registration.html [L]
+RewriteRule ^publication-option$ submission-publication.html [L]
+RewriteRule ^venue$ travel-venue.html [L]
+RewriteRule ^guide$ travel-guide.html [L]
+RewriteRule ^tourism$ travel-tourism.html [L]
+RewriteRule ^visa$ travel-visa-information.html [L]
+RewriteRule ^contact$ contact.html [L]
+RewriteRule ^sponsors$ sponsors.html [L]
+
+# Jika tidak ada mapping, coba tambahkan .html otomatis
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
