@@ -3,7 +3,7 @@ RewriteEngine On
 # Redirect folder ke index.html
 DirectoryIndex index.html
 
-# Jika file/folder ada, langsung akses
+# Jika ada file/folder langsung akses
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
@@ -26,6 +26,6 @@ RewriteRule ^visa$ travel-visa-information.html [L]
 RewriteRule ^contact$ contact.html [L]
 RewriteRule ^sponsors$ sponsors.html [L]
 
-# Jika tidak ada mapping, coba tambahkan .html otomatis
+# Jika tidak ada mapping, tambahkan .html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
